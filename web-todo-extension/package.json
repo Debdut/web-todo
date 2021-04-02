@@ -1,0 +1,37 @@
+{
+  "name": "preact-chrome-extension",
+  "version": "1.0.0",
+  "description": "Preact Chrome Extension Boilerplate",
+  "scripts": {
+    "test": "mocha",
+    "start:popup": "webpack serve --open --config webpack/dev/popup.js",
+    "start:content": "webpack serve --open --config webpack/dev/content.js",
+    "clean": "rm -rf dist",
+    "move": "mkdir dist && cp -r assets manifest.json dist",
+    "start": "npm run clean && npm run move && webpack --watch",
+    "build": "npm run clean && npm run move && webpack"
+  },
+  "author": "Debdut Karmakar <iawaiponly@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/plugin-transform-react-jsx": "^7.12.17",
+    "@babel/preset-env": "^7.13.10",
+    "autoprefixer": "^10.2.5",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "node-sass": "^5.0.0",
+    "postcss-loader": "^5.2.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.25.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
+  },
+  "dependencies": {
+    "preact": "^10.5.12"
+  }
+}

@@ -1,0 +1,6 @@
+**/node_modules
+**/dist
+**/build
+
+web-todo/size-plugin.json
+**/*.log
