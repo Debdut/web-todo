@@ -1,5 +1,5 @@
 {
-  "name": "web-todo",
+  "name": "Web Todo",
   "short_name": "web-todo",
   "start_url": "/",
   "display": "standalone",
