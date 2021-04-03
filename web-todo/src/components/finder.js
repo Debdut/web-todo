@@ -1,4 +1,4 @@
-export default function Finder ({ categories = [], selected, starred, input, update }) {
+export default function Finder ({ categories = [], selected, starred, done, input, update }) {
 
   return (
     <div>
@@ -8,7 +8,10 @@ export default function Finder ({ categories = [], selected, starred, input, upd
       <h2 class='text-xl hidden md:inline'> Create Todo's on Webpages <a class='text-blue-400' href=''>See How →</a></h2>
 
       <div class='float-right space-x-2 md:space-x-4'>
-        <Star starred={starred} update={e => update(!starred, 'starred')} />
+        <Star starred={starred} update={() => update(!starred, 'starred')} />
+
+        <input class='cursor-pointer' type='checkbox' value={done} onChange={() => update(!done, 'done')} />
+
         <Category categories={categories} update={e => update(e.target.value, 'selected')} />
       </div>
 

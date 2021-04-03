@@ -11,6 +11,7 @@ class App extends Component {
 		categories: [ 'Movie', 'Job' , 'Reading' ],
 		selected: null,
 		starred: false,
+		done: false,
 		input: ''
 	}
 
@@ -21,12 +22,12 @@ class App extends Component {
 		})
 	}
 
-	render ({}, { categories, starred, input, selected }) {
+	render ({}, { categories, starred, input, selected, done }) {
 		return (
 			<div class='mx-auto p-4'>
 				<Nav/>
 				<div class='max-w-screen-lg mx-auto mt-20 space-y-10'>
-					<Finder categories={categories} starred={starred} input={input} selected={selected} update={this.update} />
+					<Finder categories={categories} starred={starred} input={input} selected={selected} done={done} update={this.update} />
 					<List/>
 				</div>
 			</div>
