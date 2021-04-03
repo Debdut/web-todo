@@ -2,3 +2,13 @@ html, body {
 	font: 16px/1.21 'Helvetica Neue', arial, sans-serif;
 	font-weight: 400;
 }
+
+select {
+	-webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select:focus {
+	outline: none;
+}
