@@ -4,14 +4,13 @@
   "description": "Web Todo Extensiion",
   "author": "Debdut Karmakar",
   "version": "1.0.0",
-  "default_locale": "en",
 
   "action": {},
   "commands": {},
 
   "icons": {},
 
-  "permissions": {},
+  "permissions": [],
 
   "content_scripts": [
     {
