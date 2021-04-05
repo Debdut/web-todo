@@ -7,7 +7,7 @@ const todos = [
     selector: '',
     text: '',
     done: false,
-    createdAt: '',
+    createdAt: 'Mar 03 2021 14:19:55 GMT+0530 (IST)',
   },
   { 
     id: 2,
@@ -17,7 +17,7 @@ const todos = [
     selector: '',
     text: '',
     done: false,
-    createdAt: '',
+    createdAt: 'Mon Apr 05 2019 14:19:55 GMT+0530 (IST)',
   },
   { 
     id: 3,
@@ -27,7 +27,7 @@ const todos = [
     selector: '',
     text: '',
     done: false,
-    createdAt: '',
+    createdAt: 'Mon Apr 05 2021 14:19:55 GMT+0530 (IST)',
   },
   { 
     id: 4,
@@ -37,7 +37,7 @@ const todos = [
     selector: '',
     text: '',
     done: false,
-    createdAt: '',
+    createdAt: 'Mon Apr 05 2021 14:17:55 GMT+0530 (IST)',
   },
   { 
     id: 5,
@@ -47,7 +47,7 @@ const todos = [
     selector: '',
     text: "Drawing from some of the most pivotal points in his life, Steve Jobs, chief executive officer and co-founder of Apple Computer and of Pixar Animation Studios, urged graduates to pursue their dreams and see the opportunities in life's setbacks -- including death itself -- at the university's 114th Commencement on June 12, 2005.",
     done: false,
-    createdAt: '',
+    createdAt: 'Mon Apr 05 2021 14:03:55 GMT+0530 (IST)',
   },
   { 
     id: 6,
@@ -57,7 +57,7 @@ const todos = [
     selector: 'body > div:nth-child(7) > div > div > div.content-width-small > h3 > strong',
     text: 'Filter & Highlight',
     done: false,
-    createdAt: '',
+    createdAt: 'Mon Apr 05 2021 14:19:55 GMT+0530 (IST)',
   },
   { 
     id: 7,
@@ -67,7 +67,14 @@ const todos = [
     selector: '#__next > div > div:nth-child(2) > div.HowTo___StyledDiv-sc-12fy97t-0.cCxvIF > div:nth-child(1) > div.HowTo___StyledDiv3-sc-12fy97t-2.YQuwC',
     text: 'Growth and Signups Users can sign up for your product and share their link wihttps://th friends. Reward them for successful referrals.',
     done: false,
-    createdAt: '',
+    createdAt: 'Mon Mar 20 2021 14:19:55 GMT+0530 (IST)',
+  },
+  { 
+    id: 8,
+    category: '',
+    title: 'Go to Grocery',
+    done: false,
+    createdAt: 'Mon Apr 05 2021 14:19:55 GMT+0530 (IST)',
   },
 ]
 
