@@ -1,5 +1,5 @@
 export function Checkbox ({ on, update }) {
-  return <span class='text-2xl cursor-pointer' onClick={() => update(!on)}>{ on ? '✅' : '✓' }</span>
+  return <span class='text-2xl cursor-pointer' onClick={() => update(!on)}>{ on ? '✅' : ' ✓' }</span>
 }
 
 export function Select ({ options, placeholder, value, update }) {
@@ -12,5 +12,5 @@ export function Select ({ options, placeholder, value, update }) {
 }
 
 export function Star ({ on, update }) {
-  return <span class='text-2xl cursor-pointer' onClick={() => update(!on)}>{on ? '⭐' : '✩'}</span>
+  return <span class='text-2xl cursor-pointer' onClick={() => update(!on)}>{on ? '⭐' : ' ✩'}</span>
 }
