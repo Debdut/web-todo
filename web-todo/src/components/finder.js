@@ -1,3 +1,5 @@
+import { Checkbox, Select, Star } from './base'
+
 export default function Finder ({ categories = [], selected, starred, done, input, update }) {
 
   return (
@@ -8,29 +10,14 @@ export default function Finder ({ categories = [], selected, starred, done, inpu
       <h2 class='text-xl hidden md:inline'> Create Todo's on Webpages <a class='text-blue-400' href=''>See How →</a></h2>
 
       <div class='float-right space-x-2 md:space-x-4'>
-        <Star starred={starred} update={() => update(!starred, 'starred')} />
+        <Star on={starred} update={(val) => update(val, 'starred')} />
 
-        <input class='cursor-pointer' type='checkbox' value={done} onChange={() => update(!done, 'done')} />
+        <Checkbox on={done} update={(val) => update(val, 'done')} />
 
-        <Category categories={categories} update={e => update(e.target.value, 'selected')} />
+        <Select options={categories} update={e => update(e.target.value, 'selected')} value={selected} placeholder='Category' />
       </div>
 
       <input class='my-10 w-full border rounded-full p-2 px-4 text-xl' type='text' placeholder='Search' value={input} onKeyPress={e => update(e.target.value, 'input')} />
     </div>
   )
-}
-
-function Category ({ categories, selected, update }) {
-
-  return (
-    <select class='p-2 pr-10 border-2 border-blue-400' onChange={update} value={selected}>
-      <option default>Category</option>
-      {categories.map((category, index) => <option value={index} key={index}>{category}</option>)}
-    </select>
-  )
-}
-
-function Star ({ starred, update }) {
-  const star = starred ? '⭐' : '✩'
-  return <span class='text-2xl cursor-pointer' onClick={update}>{star}</span>
 }
