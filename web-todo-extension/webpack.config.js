@@ -1,9 +1,40 @@
-const Popup = require('./webpack/prod/popup')
-const Content = require('./webpack/prod/content')
-const Background = require('./webpack/prod/background')
 
-module.exports = [
-  Popup,
-  Content,
-  Background
-]
+module.exports = {
+  mode: 'production',
+  entry: {
+    popup: './popup/index.jsx',
+  },
+  output: {
+    filename: 'popup.js',
+    path: __dirname + '/dist'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: [
+              ["@babel/plugin-transform-react-jsx", { "pragma":"h" }]
+            ]
+          }
+        }
+      },
+      {
+        test: /\.scss$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'resolve-url-loader',
+          'sass-loader',
+        ],
+      },
+    ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
+}
