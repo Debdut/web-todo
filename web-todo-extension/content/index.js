@@ -1,5 +1,6 @@
 import m from './m'
 import loadStyles from './style'
+import getSelector from './get-selector'
 
 let dialog
 let mouseDownAt
@@ -32,17 +33,6 @@ window.onload = function onload () {
         }
       }
     })
-
-  document.body
-    .addEventListener('long-click', function onLongClick (event) {
-      const { target } = event
-      if (target) {
-        if (isValidTarget(target)) {
-          const position = adaptPosition({ left: event.pageX, top: event.pageY })
-          renderDialog(position)
-        }
-      }
-    })
 }
 
 function isValidTarget (target) {
@@ -55,10 +45,6 @@ function isValidTarget (target) {
   }
 
   return true
-}
-
-function getSelectedText () {
-  return window.getSelection().toString()
 }
 
 const ViewWidth = 200
@@ -85,17 +71,36 @@ function detachDialog () {
   }
 }
 
-function createTodo () {
+let todo = {}
 
+function onChange (key) {
+  return function (event) {
+    todo[key] = event.target.value
+  }
+}
+
+function createTodo () {
+  if (!todo.title) {
+    todo.title = document.title
+  }
+
+  const selection = window.getSelection()
+  if (selection) {
+    todo.selection = selection.toString()
+  }
+
+  todo.link = window.location.href
+
+  console.log(todo)
 }
 
 function createDialog ({ top, left, right }) {
   return m('div', { style: `top: ${top}px; left: ${left}px; right: ${right}px; max-width: ${ViewWidth}px`, className: 'WebTodoExtension--Content' },
     [
-      m('h3', 'Create Web Todo'),
-      m('input', { placeholder: 'Title', className: 'Title' }),
-      m('textarea', { placeholder: 'Notes', className: 'Notes' }),
-      m('button', 'Create Web Todo', { className: 'btn' } )
+      m('h3', '✅  Web Todos'),
+      m('input', { placeholder: 'Title', className: 'Title', onchange: onChange('title') }),
+      m('textarea', { placeholder: 'Notes', className: 'Notes', onchange: onChange('notes') }),
+      m('button', 'Create Web Todo', { className: 'btn', onclick: createTodo } )
     ])
 }
 
