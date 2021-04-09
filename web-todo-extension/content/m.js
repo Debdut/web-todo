@@ -89,7 +89,9 @@ function fillElement (element, props = {}, content, children = []) {
 
   for (let i = 0; i < children.length; i++) {
     const child = children[i]
-    element.appendChild(child)
+    if (child instanceof Node) {
+      element.appendChild(child)
+    }
   }
 
   return element
