@@ -1,4 +1,4 @@
-export function m (...args) {
+export default function m (...args) {
   if (args.length === 0) {
     return
   }
