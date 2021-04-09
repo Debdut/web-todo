@@ -1,10 +1,40 @@
-import { m } from './m'
+import m from './m'
+import loadStyles from './style'
 
 let dialog
+let mouseDownAt
 
 window.onload = function onload () {
+  loadStyles()
+
   document.body
-    .addEventListener('click', function onClick (event) {
+    .addEventListener('mousedown', function mousedown (event) {
+      mouseDownAt = (new Date()).getTime()
+
+      if (dialog) {
+        if(!dialog.contains(event.target)) {
+          detachDialog(dialog)
+        }
+      }
+    })
+
+  document.body
+    .addEventListener('mouseup', function mousedown (event) {
+      const mouseUpAt = (new Date()).getTime()
+      
+      if (mouseUpAt - mouseDownAt >= 500) {
+        const { target } = event
+        if (target) {
+          if (isValidTarget(target)) {
+            const position = adaptPosition({ left: event.pageX, top: event.pageY })
+            renderDialog(position)
+          }
+        }
+      }
+    })
+
+  document.body
+    .addEventListener('long-click', function onLongClick (event) {
       const { target } = event
       if (target) {
         if (isValidTarget(target)) {
@@ -55,16 +85,17 @@ function detachDialog () {
   }
 }
 
-function createDialog ({ top, left, right }) {
-  const selection = getSelectedText()
+function createTodo () {
 
-  return m(
-    'div',
-    { style: `top: ${top}px; left: ${left}px; right: ${right}px; max-width: ${ViewWidth}px; position: absolute; background: rgba(240, 240, 240, 0.3); padding: 12px; border: 1px solid #ddd; border-radius: 5px; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 1px 10px 5px rgba(150, 150, 150, 0.07), 0 1px 5px 5px rgba(150, 150, 150, 0.06); z-index: 100000;` },
+}
+
+function createDialog ({ top, left, right }) {
+  return m('div', { style: `top: ${top}px; left: ${left}px; right: ${right}px; max-width: ${ViewWidth}px`, className: 'WebTodoExtension--Content' },
     [
-      m('h3', 'Web Todo'),
-      m('input', { value: document.title }),
-      selection ? m('textarea', { value: selection }) : null
+      m('h3', 'Create Web Todo'),
+      m('input', { placeholder: 'Title', className: 'Title' }),
+      m('textarea', { placeholder: 'Notes', className: 'Notes' }),
+      m('button', 'Create Web Todo', { className: 'btn' } )
     ])
 }
 
