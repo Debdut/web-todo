@@ -6,7 +6,7 @@
   "author": "Debdut Karmakar <iawaiponly@gmail.com>",
   "scripts": {
     "build": "webpack && npm run copy:dist",
-    "copy:dist": "cp ./popup/template.html ./dist/index.html && cp manifest.json content.js ./dist",
+    "copy:dist": "cp ./popup/template.html ./dist/index.html && cp manifest.json ./dist",
     "start:content": "webpack serve --open"
   },
   "license": "ISC",
