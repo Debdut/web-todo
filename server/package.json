@@ -1,0 +1,15 @@
+{
+  "name": "web-todo-server",
+  "version": "0.0.1",
+  "description": "Server for Web Todos ",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Debdut Karmakar <iawaiponly@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.5.1"
+  }
+}
